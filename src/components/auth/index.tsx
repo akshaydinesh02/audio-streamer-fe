@@ -1,19 +1,14 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-  SheetFooter,
-} from "../ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import LoginForm from "./login";
 
 import RegisterForm from "./register";
 
 export function AuthComponent() {
   const [formToRender, setFormToRender] = useState(0);
+  console.log("form to render setter", setFormToRender);
   return (
     <Sheet>
       <SheetTrigger asChild>

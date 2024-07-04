@@ -2,7 +2,6 @@ import CardWrapper from "./card-wrapper";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,7 +14,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { z } from "zod";
-import { useFormStatus } from "react-dom";
 import { useState } from "react";
 
 const LoginForm = () => {
@@ -32,8 +30,6 @@ const LoginForm = () => {
     setLoading(true);
     console.log("Submitted", data);
   };
-
-  const { pending } = useFormStatus();
 
   return (
     <CardWrapper
@@ -76,7 +72,7 @@ const LoginForm = () => {
               )}
             />
           </div>
-          <Button type="submit" className="w-full" disabled={pending}>
+          <Button type="submit" className="w-full">
             {loading ? "loading..." : "Login"}
           </Button>
         </form>
