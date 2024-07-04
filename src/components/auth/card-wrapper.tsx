@@ -8,14 +8,14 @@ import BackButton from "./back-button";
 interface CardWrapperProps {
   label: string;
   title: string;
-  backButtonHref: string;
+  cardToRender: number;
   backButtonLabel: string;
   children: ReactNode;
 }
 const CardWrapper = ({
   label,
   title,
-  backButtonHref,
+  cardToRender,
   backButtonLabel,
   children,
 }: CardWrapperProps) => {
@@ -26,7 +26,7 @@ const CardWrapper = ({
       </CardHeader>
       <CardContent>{children}</CardContent>
       <CardFooter>
-        <BackButton label={backButtonLabel} href={backButtonHref} />
+        <BackButton label={backButtonLabel} cardToRender={cardToRender} />
       </CardFooter>
     </Card>
   );

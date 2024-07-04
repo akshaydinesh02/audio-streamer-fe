@@ -14,10 +14,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { z } from "zod";
-import { useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { authButtonLoading } from "../../state/atoms/globalAtoms";
+import { isAuthButtonLoading } from "../../state/selectors/globalSelectors";
 
 const LoginForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [, setAuthButtonLoading] = useRecoilState(authButtonLoading);
+  const loading = useRecoilValue(isAuthButtonLoading);
+
   const form = useForm({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -27,7 +31,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = (data: z.infer<typeof LoginSchema>) => {
-    setLoading(true);
+    setAuthButtonLoading(true);
     console.log("Submitted", data);
   };
 
@@ -35,7 +39,7 @@ const LoginForm = () => {
     <CardWrapper
       title="Login"
       label="Log in to account"
-      backButtonHref="/"
+      cardToRender={1}
       backButtonLabel="Don't have an account? Register here."
     >
       <Form {...form}>
