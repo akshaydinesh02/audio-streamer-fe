@@ -17,6 +17,7 @@ import { z } from "zod";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { authButtonLoading } from "../../state/atoms/globalAtoms";
 import { isAuthButtonLoading } from "../../state/selectors/globalSelectors";
+import { auth } from "../../lib/helper/supabaseClient";
 
 const RegisterForm = () => {
   const [, setAuthButtonLoading] = useRecoilState(authButtonLoading);
@@ -35,7 +36,18 @@ const RegisterForm = () => {
   const onSubmit = (data: z.infer<typeof RegisterSchema>) => {
     setAuthButtonLoading(true);
     console.log("Submitted", data);
+    // signUp();
   };
+
+  async function signUp() {
+    const { data, error } = await auth.signUp({
+      email: "akshay5632@gmail.com",
+      password: "testpassword",
+    });
+
+    console.log("Sign up", data, error);
+    setAuthButtonLoading(false);
+  }
 
   return (
     <CardWrapper
