@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
-import AuthHeader from "./auth-header";
-import BackButton from "./back-button";
+import AuthHeader from "./AuthHeader";
+import BackButton from "./BackButton";
 
 interface CardWrapperProps {
   label: string;

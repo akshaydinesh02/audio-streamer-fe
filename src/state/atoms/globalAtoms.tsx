@@ -9,3 +9,8 @@ export const authButtonLoading = atom<boolean>({
   key: "authButtonLoading",
   default: false,
 });
+
+export const authSheetOpen = atom<boolean>({
+  key: "authSheetOpen",
+  default: false,
+});

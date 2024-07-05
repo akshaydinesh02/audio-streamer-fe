@@ -1,4 +1,4 @@
-import CardWrapper from "./card-wrapper";
+import CardWrapper from "./CardWrapper";
 import {
   Form,
   FormControl,
@@ -21,7 +21,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { auth } from "../../lib/helper/supabaseClient";
 import { useCallback } from "react";
-import { AuthClient, Provider } from "@supabase/supabase-js";
+import { Provider } from "@supabase/supabase-js";
 
 const LoginForm = () => {
   const [, setAuthButtonLoading] = useRecoilState(authButtonLoading);

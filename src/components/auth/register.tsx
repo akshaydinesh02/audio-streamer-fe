@@ -1,4 +1,4 @@
-import CardWrapper from "./card-wrapper";
+import CardWrapper from "./CardWrapper";
 import {
   Form,
   FormControl,
@@ -17,7 +17,7 @@ import { z } from "zod";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { authButtonLoading } from "../../state/atoms/globalAtoms";
 import { isAuthButtonLoading } from "../../state/selectors/globalSelectors";
-import { auth } from "../../lib/helper/supabaseClient";
+// import { auth } from "../../lib/helper/supabaseClient";
 
 const RegisterForm = () => {
   const [, setAuthButtonLoading] = useRecoilState(authButtonLoading);
@@ -39,15 +39,15 @@ const RegisterForm = () => {
     // signUp();
   };
 
-  async function signUp() {
-    const { data, error } = await auth.signUp({
-      email: "akshay5632@gmail.com",
-      password: "testpassword",
-    });
+  // async function signUp() {
+  //   const { data, error } = await auth.signUp({
+  //     email: "akshay5632@gmail.com",
+  //     password: "testpassword",
+  //   });
 
-    console.log("Sign up", data, error);
-    setAuthButtonLoading(false);
-  }
+  //   console.log("Sign up", data, error);
+  //   setAuthButtonLoading(false);
+  // }
 
   return (
     <CardWrapper
