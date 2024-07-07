@@ -26,6 +26,7 @@ import { Provider } from "@supabase/supabase-js";
 const LoginForm = () => {
   const [, setAuthButtonLoading] = useRecoilState(authButtonLoading);
   const loading = useRecoilValue(isAuthButtonLoading);
+  const siteUrl = import.meta.env.VITE_PUBLIC_SITE_URL;
 
   const form = useForm({
     resolver: zodResolver(LoginSchema),
@@ -40,12 +41,18 @@ const LoginForm = () => {
     console.log("Submitted", data);
   };
 
-  const onOAuthClick = useCallback(async (provider: Provider) => {
-    const res = await auth.signInWithOAuth({
-      provider: provider,
-    });
-    console.log("res", res);
-  }, []);
+  const onOAuthClick = useCallback(
+    async (provider: Provider) => {
+      const res = await auth.signInWithOAuth({
+        provider: provider,
+        options: {
+          redirectTo: `${siteUrl}/dashboard`,
+        },
+      });
+      console.log("res", res);
+    },
+    [siteUrl]
+  );
 
   return (
     <CardWrapper

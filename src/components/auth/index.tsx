@@ -36,7 +36,14 @@ export function AuthComponent() {
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Edit Profile</DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => {
+                  if (path === "/profile") return;
+                  navigate("/profile");
+                }}
+              >
+                Edit Profile
+              </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => {
                   if (path === "/") return;
@@ -66,7 +73,7 @@ export function AuthComponent() {
       ) : (
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <CgProfile className="w-6 h-6" />
+            <CgProfile className="w-6 h-6 cursor-pointer" />
           </SheetTrigger>
           <SheetContent>
             {card === 0 ? <LoginForm /> : <RegisterForm />}
