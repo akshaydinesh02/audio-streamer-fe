@@ -33,3 +33,20 @@ export const LoginSchema = z.object({
     message: "Password must be atleast 6 characters long",
   }),
 });
+
+export const ProfileSchema = z.object({
+  name: z.string().min(1, {
+    message: "Please enter your name",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address!",
+  }),
+  phoneNumber: z
+    .number()
+    .min(10, {
+      message: "Country code must exactly be 10 numbers",
+    })
+    .max(10, {
+      message: "Country code must exactly be 10 numbers",
+    }),
+});

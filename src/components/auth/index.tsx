@@ -59,7 +59,7 @@ export function AuthComponent() {
                     navigate("/dashboard");
                   }}
                 >
-                  Admin Dashboard
+                  Dashboard
                 </DropdownMenuItem>
               ) : (
                 <></>

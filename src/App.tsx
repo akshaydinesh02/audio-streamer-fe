@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 import RootLayout from "./components/common/RootLayout";
 import Dashboard from "./components/dashboard";
+import Profile from "./components/profile";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute>
-                    <div>PROFILE - Protected route</div>
+                    <Profile />
                   </ProtectedRoute>
                 }
               />

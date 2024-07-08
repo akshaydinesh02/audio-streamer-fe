@@ -32,12 +32,12 @@ const Dashboard = () => {
   const currentDate = `${date} ${month} ${year} ${hour}:${min}`;
 
   return (
-    <div className="max-w-[70%] m-auto flex flex-col gap-4">
+    <div className="max-w-[70%] m-auto flex flex-col gap-4 pb-14">
       <h1 className="font-medium text-3xl text-center">
         Welcome to admin dashboard<strong>{name}</strong>
       </h1>
 
-      <div className="mt-4 py-4 px-2 flex justify-between items-center text-gray-500">
+      <div className="mt-4 p-2 flex justify-between items-center text-gray-500">
         <p className="text-lg">
           Current Streaming Status -{" "}
           <strong className="text-red-500">NOT STREAMING</strong>
